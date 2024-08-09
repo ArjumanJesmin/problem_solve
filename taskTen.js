@@ -1,3 +1,7 @@
+// 10.Task: Advanced Sorting
+
+// Create an array of objects representing students with 'name' and 'grades' properties. Write a function to sort the students by average grade in descending order.
+
 const students = [
   { name: "Azmin", grades: [85, 90, 78] },
   { name: "Boby", grades: [70, 75, 80] },

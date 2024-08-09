@@ -1,3 +1,7 @@
+// 09. Task: Find Maximum Value:
+
+// Write a function that takes an array of numbers and returns the maximum value.
+
 function findMaxValue(numbersArray) {
   return Math.max(...numbersArray);
 }

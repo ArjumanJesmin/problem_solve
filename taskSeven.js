@@ -1,3 +1,7 @@
+// 7.  Task: Leap Year Checker
+// Write a function that determines whether a given year is a leap year.
+// Example: Happy New Year
+
 function isLeapYear(year) {
   if (year % 4 === 0) {
     if (year % 100 === 0) {
