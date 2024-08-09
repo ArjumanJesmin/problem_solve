@@ -123,3 +123,132 @@ const longestCommonPrefix = (strs) => {
   }
   return prefix;
 };
+
+// 11. Find Duplicates in an Array
+// Question: Write a function to find duplicate values in an array.
+// Solution:
+const findDuplicates = (arr) => {
+  const seen = new Set();
+  const duplicates = new Set();
+  for (const item of arr) {
+    if (seen.has(item)) {
+      duplicates.add(item);
+    } else {
+      seen.add(item);
+    }
+  }
+  return Array.from(duplicates);
+};
+
+// 12. Remove Duplicates from an Array
+// Question: Write a function to remove duplicate values from an array.
+// Solution:
+const removeDuplicates = (arr) => {
+  return Array.from(new Set(arr));
+};
+
+// 13. Sum of All Numbers in a Range
+// Question: Write a function to find the sum of all numbers in a range from start to end (inclusive).
+// Solution:
+const sumRange = (start, end) => {
+  return ((end - start + 1) * (start + end)) / 2;
+};
+
+// 14. Find Common Elements in Two Arrays
+// Question: Write a function to find common elements between two arrays.
+// Solution:
+const findCommonElements = (arr1, arr2) => {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+  const common = [];
+  for (const item of set1) {
+    if (set2.has(item)) {
+      common.push(item);
+    }
+  }
+  return common;
+};
+
+// 15. Generate Fibonacci Sequence
+// Question: Write a function to generate the Fibonacci sequence up to a given number n.
+// Solution:
+const fibonacci = (n) => {
+  const sequence = [0, 1];
+  for (let i = 2; i < n; i++) {
+    sequence.push(sequence[i - 1] + sequence[i - 2]);
+  }
+  return sequence.slice(0, n);
+};
+
+// 16. Sort an Array of Objects by Property
+// Question: Write a function to sort an array of objects by a given property.
+// Solution:
+const sortByProperty = (arr, prop) => {
+  return arr.sort((a, b) => (a[prop] > b[prop] ? 1 : -1));
+};
+
+// 17. Find the Missing Letter in a Range
+// Question: Write a function to find the missing letter in a given range of letters.
+// Solution:
+const findMissingLetter = (arr) => {
+  const start = arr[0].charCodeAt(0);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].charCodeAt(0) !== start + i) {
+      return String.fromCharCode(start + i);
+    }
+  }
+  return null;
+};
+
+// 18. Check for Anagrams
+// Question: Write a function to check if two strings are anagrams of each other.
+// Solution:
+const areAnagrams = (str1, str2) => {
+  const sortedStr1 = str1.split("").sort().join("");
+  const sortedStr2 = str2.split("").sort().join("");
+  return sortedStr1 === sortedStr2;
+};
+
+// 19. Find the Largest Prime Factor
+// Question: Write a function to find the largest prime factor of a number.
+// Solution:
+const largestPrimeFactor = (n) => {
+  let divisor = 2;
+  while (n > 1) {
+    if (n % divisor === 0) {
+      n /= divisor;
+    } else {
+      divisor++;
+    }
+  }
+  return divisor;
+};
+
+// 20. Convert a Number to Roman Numerals
+// Question: Write a function to convert an integer to a Roman numeral.
+// Solution:
+const intToRoman = (num) => {
+  const val = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  const syb = [
+    "M",
+    "CM",
+    "D",
+    "CD",
+    "C",
+    "XC",
+    "L",
+    "XL",
+    "X",
+    "IX",
+    "V",
+    "IV",
+    "I",
+  ];
+  let roman = "";
+  for (let i = 0; i < val.length; i++) {
+    const q = Math.floor(num / val[i]);
+    num -= q * val[i];
+    roman += syb[i].repeat(q);
+  }
+  return roman;
+};
